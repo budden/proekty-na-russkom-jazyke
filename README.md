@@ -7,10 +7,15 @@ https://gitlab.com/budden/repozitorii-xegithub-xrs-russkimi-kommitami
 Он найден по учебной выборке, поэтому заведомо не полон. Неплохо бы его вручную посмотреть и найти там реально интересные проекты
 
 https://gitlab.com/pavia00/pop - язык программирования ПОП
+
 https://github.com/EvilBeaver/OneScript - 1Скрипт
-https://tvoygit.ru/budden/ja-o-s - ЯОС
+
+https://tvoygit.ru/budden/ja-o-s - ЯОС - операционная система на Обероне
+
 https://github.com/covrom/gonec - интерпретатор Гонец - микросервисы для 1С
+
 https://github.com/prospero78/Oberon07ru - Оберон 07 с русскими ключевыми словами
+
 https://github.com/zx-90/kartarika - Язык программирования Картарика
 
 
