@@ -18,4 +18,8 @@ https://github.com/prospero78/Oberon07ru - Оберон 07 с русскими �
 
 https://github.com/zx-90/kartarika - Язык программирования Картарика
 
+https://gitlab.com/pavia00/nanokit/-/tree/develop - проект реализации литографа
+
+https://github.com/Kalimehtar/russian-lang - русскоязычный язык программирования от Kalimehtar (Monk) на базе Racket
+
 
