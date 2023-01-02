@@ -22,4 +22,6 @@ https://gitlab.com/pavia00/nanokit/-/tree/develop - проект реализа�
 
 https://github.com/Kalimehtar/russian-lang - русскоязычный язык программирования от Kalimehtar (Monk) на базе Racket
 
+[LuaRus](https://github.com/rst256/LuaRus/blob/master/tutorial/tutorial1.txt) - частичная русификация Lua
 
+https://github.com/yaroslav/russian — Russian - библиотека для полноценной поддержки русского языка (форматирование даты и времени, плюрализация, транслит, локализация в целом) для Ruby и Ruby on Rails.
