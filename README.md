@@ -25,3 +25,5 @@ https://github.com/Kalimehtar/russian-lang - русскоязычный язык
 [LuaRus](https://github.com/rst256/LuaRus/blob/master/tutorial/tutorial1.txt) - частичная русификация Lua
 
 https://github.com/yaroslav/russian — Russian - библиотека для полноценной поддержки русского языка (форматирование даты и времени, плюрализация, транслит, локализация в целом) для Ruby и Ruby on Rails.
+
+https://github.com/pascalabcnet/pascalabcnet - PascalABC. Коммиты, задачи, комментарии в коде смешанные, в т.ч. много на русском. Сам по себе PascalABC не поддерживает русские ключевые слова официально, но компилятор можно им научить, см. https://github.com/pascalabcnet/pascalabcnet/issues/2953 и https://www.вече.программирование-по-русски.рф/viewtopic.php?f=13&t=681
