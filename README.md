@@ -26,6 +26,24 @@ https://github.com/Kalimehtar/russian-lang - русскоязычный язык
 
 https://github.com/yaroslav/russian — Russian - библиотека для полноценной поддержки русского языка (форматирование даты и времени, плюрализация, транслит, локализация в целом) для Ruby и Ruby on Rails.
 
-https://github.com/pascalabcnet/pascalabcnet - PascalABC. Коммиты, задачи, комментарии в коде смешанные, в т.ч. много на русском. Сам по себе PascalABC не поддерживает русские ключевые слова официально, но компилятор можно им научить, см. https://github.com/pascalabcnet/pascalabcnet/issues/2953 и https://www.вече.программирование-по-русски.рф/viewtopic.php?f=13&t=681
+https://github.com/pascalabcnet/pascalabcnet - PascalABC; Коммиты, задачи, комментарии в коде смешанные, в т.ч. много на русском. Сам по себе PascalABC не поддерживает русские ключевые слова официально, но компилятор можно им научить, см. https://github.com/pascalabcnet/pascalabcnet/issues/2953 и https://www.вече.программирование-по-русски.рф/viewtopic.php?f=13&t=681
 
 [БМПОС](https://git.synapseos.ru/Aren/BMOSP) ( [зеркало](https://tvoygit.ru/0Nera/BMOSP) ) - Базовая Модульная Платформа Операционных систем. Документация на русском и даже на экранчике много кириллицы. Операционная система, которая сразу при загрузке общается с пользователем по-русски - это редкость, не всякая "отечественная ОС" таким может похвастаться. 
+
+https://github.com/Gl237man/IndustrialExchangeMod - что-то для майнкрафта; коммиты
+
+https://github.com/sergev/milprog - запись ПО в Flash-память микроконтроллеров Миландр; коммиты, комментарии.
+
+https://github.com/Ishayahu/MJCC-tasks - система учёта заявок ИТ-отдела; коммиты, комментарии
+
+https://github.com/kazancevsm/r107 - система управления контентом; коммиты, имена файлов
+
+https://github.com/nuclearthinking/rpg - видимо, игра какая-то; коммиты, комментарии
+
+https://github.com/cawa-93/command-editor - редактор кампаний Яндекс.Директ; коммиты, сообщения пользователю
+
+https://github.com/z-techno/cryptopro - Адаптер для родной КриптоПро библиотеки cadesplugin_api.js ; коммиты, комментарии
+
+https://github.com/vataninandrey/raox-models примеря для языка моделирования RAO; КОД, коммиты, комментарии
+
+
