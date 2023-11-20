@@ -1,3 +1,5 @@
+#!/usr/bin/python3.7
+
 import os
 import sys
 import pathlib
@@ -14,7 +16,7 @@ from concurrent.futures import ThreadPoolExecutor
 ## такими срабатываниями
 ## Принимает в качестве параметра имя файла. Кодировку можно поменять в исходном тексте
 
-кодировка = 'utf-8'
+кодировка = 'cp1251'
 
 def main():
     file_path = sys.argv[1]
