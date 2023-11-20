@@ -22,7 +22,7 @@ from concurrent.futures import ThreadPoolExecutor
 интересныеЯзыки = ['Ruby', 'VB.net', 'GLSL', 'Perl', 'PHP', 'Python', 'Common Lisp', 'OCaml', 'Java', 
     'C#', 'JavaScript', 'C', 'C++', 'Prolog', 'Go', 'Rust', 'Scheme', 'Transact-SQL', 'PL-SQL', 'tsql', 'PL/1', 'plsql', 'pli', 'Pascal', 'Delphi', 'Modula-2']
 
-неинтересныеРасширенияФайлов = ['.md','.txt','.html','.xml','.XML','.json']
+неинтересныеРасширенияФайлов = ['.md','.txt','.html','.xml','.XML','.json','.jpg','.png','.svg','.ttf','.sample']
 
 
 def НайденЯзыкКоторыйМыНеЗаказывали(lexer_name, url, log, файлДляНезаказанныхЯзыков):
@@ -103,25 +103,30 @@ def analyze_repo(url, log, файлДляНезаказанныхЯзыков):
                         if (lexer.name in интересныеЯзыки):
                                 def ИщиРусскиеИменаВТакойКодировке(encoding):
                                     try:
-                                        with open(file_path, 'r', encoding=encoding, errors = 'ignore') as f:
+                                        with open(file_path, 'r', encoding=encoding) as f:
                                             content = f.read()
                                         if not re.search('[а-яА-ЯёЁ]',content):
                                             return False
-                                        with open(file_path, 'r', encoding=encoding, errors = 'ignore') as f:
+                                        with open(file_path, 'r', encoding=encoding) as f:
                                             лексемы = pygments.lex(f.read(), lexer)
                                             for token, value in лексемы:
                                                 # print(token)
                                                 if pygments.token.is_token_subtype(token, pygments.token.Name):
                                                     if re.search('[а-яА-ЯёЁ]', value):
-                                                        return True
+                                                        # аномалия с cp1251, во всяком случае, в минифицированных файлах
+                                                        if not (encoding=='cp1251' and value == 'п'):
+                                                            return True
                                         return False
                                     except:
                                         print(f"{url} - Ошибка при разборе файла.")
-                                        return False
+                                        return None
                                     
-                                успех = ИщиРусскиеИменаВТакойКодировке('utf-8') or ИщиРусскиеИменаВТакойКодировке('cp1251')
-                                if успех:
+                                успех = ИщиРусскиеИменаВТакойКодировке('utf-8') 
+                                if успех is None:
+                                    успех = ИщиРусскиеИменаВТакойКодировке('cp1251')
+                                if успех == True:
                                     files_with_russian.append(file_path)
+                                
             if len(files_with_russian) == 0:
                 log.write(f"{url} - Не обнаруженно файлов содержащих русские символы. \n")
                 print(f"{url} - Не обнаруженно файлов содержащих русские символы.")
