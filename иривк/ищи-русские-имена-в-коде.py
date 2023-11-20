@@ -1,11 +1,12 @@
 import os
+import pathlib
 import re
 import requests
 from subprocess import call
 import threading
 import pygments
-from pygments.token import Text
-from pygments import lex
+from pygments.lexers import get_lexer_for_filename
+import pygments.token 
 from concurrent.futures import ThreadPoolExecutor
 
 ### Проверен на python 3.7.5
@@ -18,19 +19,23 @@ from concurrent.futures import ThreadPoolExecutor
 
 возможныеПутиК_README_mdВнутриРепозитория = ["/blob/main/README.md", "/blob/master/README.md", "/README.md", "/", ""]    
 найденныеЯзыкиКоторыеМыНеЗаказывали = []
-интересныеЯзыки = ['Ruby', 'VB.net', 'GLSL', 'Perl', 'PHP', 'Python', 'Common Lisp', 'OCaml', 'Java', 'C#', 'JavaScript', 'C', 'C++', 'Prolog', 'Go', 'Rust', 'Scheme', 'Transact-SQL', 'PL-SQL', 'tsql', 'PL/1', 'plsql', 'pli', 'Pascal', 'Delphi', 'Modula-2']
+интересныеЯзыки = ['Ruby', 'VB.net', 'GLSL', 'Perl', 'PHP', 'Python', 'Common Lisp', 'OCaml', 'Java', 
+    'C#', 'JavaScript', 'C', 'C++', 'Prolog', 'Go', 'Rust', 'Scheme', 'Transact-SQL', 'PL-SQL', 'tsql', 'PL/1', 'plsql', 'pli', 'Pascal', 'Delphi', 'Modula-2']
+
+неинтересныеРасширенияФайлов = ['.md','.txt','.html','.xml','.XML','.json']
 
 
-def НайденЯзыкКоторыйМыНеЗаказывали(lexer_name, url, log):
+def НайденЯзыкКоторыйМыНеЗаказывали(lexer_name, url, log, файлДляНезаказанныхЯзыков):
     if lexer_name not in найденныеЯзыкиКоторыеМыНеЗаказывали:
         найденныеЯзыкиКоторыеМыНеЗаказывали.append(lexer_name)
-        log.write(f"{url} - Лексер определил язык, который не включеён в список разрешённых. {lexer.name}  \n")
-        print(f"{url} - Лексер определил язык, который не включеён в список разрешённых. {lexer.name} ")
+        log.write(f"{url} - Лексер определил язык, который не включён в список разрешённых. {lexer_name}  \n")
+        print(f"{url} - Лексер определил язык, который не включён в список разрешённых. {lexer_name} ")
+        файлДляНезаказанныхЯзыков.write("%s\n" % lexer_name)
 
 def download_repo(url, log):
     httpsPrefix = "https://github.com/"
     assert(url.startswith(httpsPrefix))
-    repo_dir = "cloned_repos/" + url.split('/')[3:]
+    repo_dir = os.path.join("cloned_repos",*url.split('/')[3:])
     gitUrl = url.replace(httpsPrefix, "git@github.com:")
     try:
         call(['git', 'clone', '--depth', '1', gitUrl, repo_dir])
@@ -55,12 +60,11 @@ def analyze_readme(url, log):
                 else:
                     return 1
         except Exception as e:
-            log.write(f"{readme_url} - Не найден README.  \n")
             print(f"{readme_url} - Не найден README.")
     return 0
 
 
-def analyze_repo(url, log):
+def analyze_repo(url, log, файлДляНезаказанныхЯзыков):
     try:
             print(f"{url} STP загрузуа и анализ README")
             res = analyze_readme(url, log)
@@ -76,31 +80,42 @@ def analyze_repo(url, log):
                     for file in files:
                         file_path = os.path.join(root, file)
                         file_ext = os.path.splitext(file_path)[1]
+                        неинтересноеРасширение = False
+                        for расш in неинтересныеРасширенияФайлов:
+                            if file_ext.endswith(расш):
+                                неинтересноеРасширение = True
+                                break
+                        
+                        if неинтересноеРасширение:
+                            continue
+
                         lexer = None
-                        try:
-                            lexer = pygments.lexers.get_lexer_for_filename(file_ext)
-                        except:
-                            log.write(f"{url}...{file_ext} - Лексер не определил язык. \n")
-                            print(f"{url}...{file_ext} - Лексер не определил язык. ")
-                            pass
-                        if lexer and not(lexer.name in интересныеЯзыки):
-                            НайденЯзыкКоторыйМыНеЗаказывали(lexer.name, url, log)
-                        if file_ext and lexer and (lexer.name in интересныеЯзыки) and not file_ext.endswith(".md"):
-                                #with open(file_path, 'r', encoding='utf-8') as f:
+                        if file_ext:
+                            try:
+                                lexer = get_lexer_for_filename(file_ext)
+                            except:
+                                print(f"{url}...{file_ext} - Лексер не определил язык. ")
+                                lexer = None
+                        if lexer is None:
+                            continue
+                        if not(lexer.name in интересныеЯзыки):
+                            НайденЯзыкКоторыйМыНеЗаказывали(lexer.name, url, log, файлДляНезаказанныхЯзыков)
+                        if (lexer.name in интересныеЯзыки):
                                 def ИщиРусскиеИменаВТакойКодировке(encoding):
                                     try:
                                         with open(file_path, 'r', encoding=encoding, errors = 'ignore') as f:
                                             content = f.read()
                                         if not re.search('[а-яА-ЯёЁ]',content):
                                             return False
-                                        with open(file_path, 'r') as f:
-                                            for token, value in lex(f.read(), lexer):
-                                                if token is pygments.token.Name:
+                                        with open(file_path, 'r', encoding=encoding, errors = 'ignore') as f:
+                                            лексемы = pygments.lex(f.read(), lexer)
+                                            for token, value in лексемы:
+                                                # print(token)
+                                                if pygments.token.is_token_subtype(token, pygments.token.Name):
                                                     if re.search('[а-яА-ЯёЁ]', value):
                                                         return True
                                         return False
                                     except:
-                                        log.write(f"{url} - Ошибка при разборе файла. \n")
                                         print(f"{url} - Ошибка при разборе файла.")
                                         return False
                                     
@@ -112,6 +127,7 @@ def analyze_repo(url, log):
                 print(f"{url} - Не обнаруженно файлов содержащих русские символы.")
             else:
                 log.write(f"{url} - Русский язык был найден в этом репозитории: {files_with_russian}  \n")
+                log.flush()
                 print(f"{url} - Русский язык был найден в этом репозитории: {files_with_russian}")
                 return
                     
@@ -123,15 +139,13 @@ def analyze_repo(url, log):
 
 def main():
     # Чтение ссылок из файла
+    with open("ЯзыкиКоторыеМыНеЗаказывали.txt", "w") as файлДляНезаказанныхЯзыков:
         with open("repos.txt", "r") as file:
             urls = file.readlines()
             urls = [url.strip() for url in urls]
         with open("log.txt", "w") as log:
             for url in urls:
-                analyze_repo(url,log)
+                analyze_repo(url,log,файлДляНезаказанныхЯзыков)
                 
 main()
 
-print(f"Другие незамеченные языки: {найденныеЯзыкиКоторыеМыНеЗаказывали}")
-with open("NotFound.txt", "w") as log:
-	log.write(f'Другие незамеченные языки: {найденныеЯзыкиКоторыеМыНеЗаказывали} \n')

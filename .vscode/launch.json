@@ -5,11 +5,12 @@
         "version": "0.2.0",
         "configurations": [
                 {
-                        "name": "Python: main8.py",
+                        "name": "Python: ищи-русские-имена-в-коде.py",
                         "type": "python",
                         "request": "launch",
-                        "program": "main8.py",
+                        "program": "ищи-русские-имена-в-коде.py",
                         "console": "integratedTerminal",
+                        "cwd": "${workspaceFolder}/иривк",
                         "justMyCode": true
                 }
         ]
