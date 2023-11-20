@@ -1,0 +1,3 @@
+https://github.com/budden/dlist
+https://github.com/DonCuponesInternet/rails_admin 
+https://github.com/athompson11/Soteria-v3 
