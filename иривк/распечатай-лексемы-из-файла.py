@@ -16,7 +16,7 @@ from concurrent.futures import ThreadPoolExecutor
 ## такими срабатываниями
 ## Принимает в качестве параметра имя файла. Кодировку можно поменять в исходном тексте
 
-кодировка = 'cp1251'
+кодировка = 'utf-8'
 
 def main():
     file_path = sys.argv[1]
