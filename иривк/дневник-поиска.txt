@@ -1,4 +1,4 @@
-2021-11-20:
+2023-11-20:
 
 https://github.com/kenaku/style - Русский язык был найден в этом репозитории: ['cloned_repos/kenaku/style/node_modules/browser-sync/node_modules/browser-sync-ui/node_modules/weinre/web/client/nls/English.lproj/localizedStrings.js', 'cloned_repos/kenaku/style/node_modules/gulp-svgmin/node_modules/svgo/plugins/transformsWithOnePath.js']  
 
@@ -7,3 +7,6 @@ https://github.com/kenaku/style - Русский язык был найден в
 https://github.com/jumper423/yii2-vk - Русский язык был найден в этом репозитории: ['cloned_repos/jumper423/yii2-vk/VK.php']   - опечатка
 
 
+2023-11-23
+
+https://github.com/znamenica/prelozczik - Руби, программа - преобразователь кодировок, в т.ч. для церковнославянской кодировки
