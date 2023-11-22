@@ -1,3 +1,5 @@
+#!/usr/bin/python3.7
+
 import os
 import pathlib
 import re
@@ -20,7 +22,8 @@ from concurrent.futures import ThreadPoolExecutor
 возможныеПутиК_README_mdВнутриРепозитория = ["/blob/main/README.md", "/blob/master/README.md", "/README.md", "/", ""]    
 найденныеЯзыкиКоторыеМыНеЗаказывали = []
 интересныеЯзыки = ['Ruby', 'VB.net', 'GLSL', 'Perl', 'PHP', 'Python', 'Common Lisp', 'OCaml', 'Java', 
-    'C#', 'JavaScript', 'C', 'C++', 'Prolog', 'Go', 'Rust', 'Scheme', 'Transact-SQL', 'PL-SQL', 'tsql', 'PL/1', 'plsql', 'pli', 'Pascal', 'Delphi', 'Modula-2']
+    'C#', 'JavaScript', 'C', 'C++', 'Prolog', 'Go', 'Rust', 'Scheme', 'Transact-SQL', 'PL-SQL', 'tsql', 'PL/1', 'plsql', 'pli', 'Pascal', 'Delphi', 'Modula-2',
+    'Modelica', 'Lua', 'TypeScript', 'Haskell']
 
 неинтересныеРасширенияФайлов = ['.md','.txt','.html','.xml','.XML','.json','.jpg','.png','.svg','.ttf','.sample']
 
