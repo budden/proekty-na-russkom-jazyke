@@ -10,3 +10,73 @@ https://github.com/jumper423/yii2-vk - Русский язык был найде
 2023-11-23
 
 https://github.com/znamenica/prelozczik - Руби, программа - преобразователь кодировок, в т.ч. для церковнославянской кодировки
+
+2023-11-23
+
+https://github.com/ifiction-ru/Az - игра на JS. ['cloned_repos/ifiction-ru/Az/precursor/game.js', 
+'cloned_repos/ifiction-ru/Az/precursor/dictionary/dictionary.js', 
+'cloned_repos/ifiction-ru/Az/precursor/az/az-lang-ru.js', 
+'cloned_repos/ifiction-ru/Az/precursor/az/az-interface.js', 
+'cloned_repos/ifiction-ru/Az/precursor/az/az-functions.js', 
+'cloned_repos/ifiction-ru/Az/precursor/az/az-descriptions.js', 
+'cloned_repos/ifiction-ru/Az/precursor/az/az-sysobjects.js', 
+'cloned_repos/ifiction-ru/Az/precursor/az/az-engine.js']  - куски кода на русском
+
+```
+        Кутуш.Действие('приманить кутуша', [
+            {где:ВЕЗДЕ, глагол:['махать','сигналить','привлечь'], А:[Кутуш,'пират'], Б:[null,Карта]},
+            {где:ВЕЗДЕ, глагол:['махать','сигналить','привлечь'], А:'внимание', Б:[null,Карта], В:[null,Кутуш,'пирата']},
+            //----------
+            ], function(Команда) {
+                if (Карта.Находится(ИГРОК) == НЕТ) {
+                    Вывести('Да хоть колесом на руках ходи! Кутуш не такой дурак, чтобы вернуться только для того, чтобы спросить, не напекло ли мне голову.');
+                } else {
+                    if (Команда.Б.Объект == null) {
+                        Вывести('Криком и маханием руками внимание привлечь вряд ли получится.');
+                    } else if (Команда.Б.Объект.Это(Карта) == ДА) {
+                        СигналКораблю();
+                    } else {
+                        Вывести('Вряд ли удастся этим привлечь внимание.');
+                    }
+                } // end if
+            }
+        ); // действие
+```
+
+
+
+https://github.com/nixel2007/vsc-language-1c-bsl - поддержка 1С в VS Code (не смотрел исходники, но что-то нашлось)
+
+['cloned_repos/nixel2007/vsc-language-1c-bsl/lib/syntaxhelper.js', 
+'cloned_repos/nixel2007/vsc-language-1c-bsl/src/global.ts', 
+'cloned_repos/nixel2007/vsc-language-1c-bsl/src/libProvider.ts',
+ 'cloned_repos/nixel2007/vsc-language-1c-bsl/src/features/completionItemProvider.ts', 
+'cloned_repos/nixel2007/vsc-language-1c-bsl/src/features/SyntaxContentOscript.ts', 
+'cloned_repos/nixel2007/vsc-language-1c-bsl/src/features/SyntaxExternalHelper.ts', 
+'cloned_repos/nixel2007/vsc-language-1c-bsl/src/features/SyntaxContent1C.ts', 
+'cloned_repos/nixel2007/vsc-language-1c-bsl/src/features/hoverProvider.ts', 
+'cloned_repos/nixel2007/vsc-language-1c-bsl/src/features/signatureHelpProvider.ts', 
+'cloned_repos/nixel2007/vsc-language-1c-bsl/src/features/syntaxHelper.ts', 
+'cloned_repos/nixel2007/vsc-language-1c-bsl/src/features/AbstractSyntaxContent.ts']
+
+https://github.com/chomobi/recodenc - локализация игры EU4 и CK2, внутрь не смотрел
+
+
+https://github.com/Inyutin/portfolio - мелочи на C# с вкраплениями русского. 
+
+```
+            this.toolStripMenuItem3,
+            this.показатьФормуПользователяToolStripMenuItem});
+                        this.contextMenuStrip1.Name = "contextMenuStrip1";
+                        this.contextMenuStrip1.Size = new System.Drawing.Size(277, 132);
+
+```
+
+
+https://github.com/AlexProfanov/ESS - по всей видимости, учебный проект - оболочка экспертной системы. 
+```
+namespace ОболочкаЭС
+{
+    public partial class ChooseGoal : Form
+    {
+```
