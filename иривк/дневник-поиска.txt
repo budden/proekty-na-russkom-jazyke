@@ -80,3 +80,81 @@ namespace ОболочкаЭС
     public partial class ChooseGoal : Form
     {
 ```
+
+
+https://github.com/stden/programming/CSharp/WindowsDemo/Snake/MainForm.Designer.cs
+```
+                // Обработчик нажатий "стрелок" на клавиатуре
+                protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+                {
+                        // Для всех обрабатываемых клавиш возвращаем true
+                        if (keyData == Keys.Left)
+                        {
+                Поле.Змейка.TurnHead(Direction.Left);
+                                return true;
+                        }
+                        else if (keyData == Keys.Right)
+                        {
+```
+
+
+
+https://github.com/pistol88/yii2-shop
+```
+            foreach($offers->ПакетПредложений->Предложения->Предложение as $offer) {
+                foreach($offer->Цены->Цена as $price) {
+                    $priceType = (string)$price->ИдТипаЦены;
+                    $prices[(string)$offer->Ид][$priceType] = (int)$price->ЦенаЗаЕдиницу;
+                }
+            }
+            
+```
+
+https://github.com/perk11/lastfmtovk 
+```
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Me.trayicon = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.traymenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.НастройкиToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.user_log = New System.Windows.Forms.TextBox()
+        Me.button_start_stop = New System.Windows.Forms.Button()
+```
+
+https://github.com/sw0rl0k/selfcontrolapp
+```
+        #region Код, автоматически созданный конструктором форм Windows
+
+        /// <summary>
+        /// Требуемый метод для поддержки конструктора — не изменяйте 
+        /// содержимое этого метода с помощью редактора кода.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.помощьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+```
+
+https://github.com/Vinogradov-Mikhail/MCCW 
+```
+namespace Лабараторная1
+{
+    public class Cut
+    {
+```
+
+https://github.com/Anna268/Selenium-WebDriver-sel8
+
+```
+namespace Вебинар2._1
+{
+```
+
