@@ -158,3 +158,36 @@ namespace Вебинар2._1
 {
 ```
 
+https://github.com/gvlasov/inflectible
+```
+public enum RussianGrammaticalCategory implements GrammaticalCategory {
+    /**
+     * Grammatical gender.
+     * <p>Род.
+     */
+    Род,
+
+    /**
+     * Grammatical number.
+     * <p>Число.
+     */
+    Число,
+
+    /**
+     * Grammatical case.
+     * <p>Падеж.
+     */
+    Падеж,
+
+    /**
+     * Grammatical tense.
+     * <p>Время.
+     */
+    Время,
+
+    /**
+     * Grammatical person.
+     * <p>Лицо.
+     */
+    Лицо,
+```
